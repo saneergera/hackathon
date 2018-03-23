@@ -1,5 +1,5 @@
 ;(function () {
-	
+
 	'use strict';
 
 
@@ -37,7 +37,7 @@
 	};
 
 	var sliderMain = function() {
-		
+
 	  	$('#fh5co-hero .flexslider').flexslider({
 			animation: "fade",
 			slideshowSpeed: 5000,
@@ -57,9 +57,9 @@
 
 	  	});
 
-	  	$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());	
+	  	$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());
 	  	$(window).resize(function(){
-	  		$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());	
+	  		$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());
 	  	});
 
 	};
@@ -75,7 +75,7 @@
 		setTimeout(function(){
 			$('.js-responsive > .v-align').css('height', $('.js-responsive > img').height());
 		}, 1);
-		
+
 		$(window).resize(function(){
 			setTimeout(function(){
 				$('.js-responsive > .v-align').css('height', $('.js-responsive > img').height());
@@ -94,10 +94,10 @@
 
     			$('body').removeClass('offcanvas-visible');
     			$('.js-fh5co-nav-toggle').removeClass('active');
-				
+
 	    	}
-	    
-	    	
+
+
 	    }
 		});
 
@@ -141,7 +141,7 @@
 
 
 	var toggleBtnColor = function() {
-		if ( $('#fh5co-hero').length > 0 ) {	
+		if ( $('#fh5co-hero').length > 0 ) {
 			$('#fh5co-hero').waypoint( function( direction ) {
 				if( direction === 'down' ) {
 					$('.fh5co-nav-toggle').addClass('dark');
@@ -152,7 +152,7 @@
 				if( direction === 'up' ) {
 					$('.fh5co-nav-toggle').removeClass('dark');
 				}
-			} , { 
+			} , {
 				offset:  function() { return -$(this.element).height() + 0; }
 			} );
 		}
@@ -165,7 +165,7 @@
 		$('.animate-box').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -186,11 +186,11 @@
 							}
 
 							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
+						},  k * 100, 'easeInOutExpo' );
 					});
-					
-				}, 100);
-				
+
+				}, 50);
+
 			}
 
 		} , { offset: '85%' } );
@@ -199,8 +199,10 @@
 	var testimonialCarousel = function(){
 		var owl = $('.owl-carousel-fullwidth');
 		owl.owlCarousel({
-			animateOut: 'fadeOut',
+
 			items: 1,
+			autoplay:true,
+			autoplayTimeout:4000,
 			loop: true,
 			margin: 0,
 			responsiveClass: true,
@@ -211,7 +213,7 @@
 		});
 	};
 
-	
+
 	$(function(){
 		fullHeight();
 		sliderMain();
@@ -226,4 +228,53 @@
 	});
 
 
+
+
+
 }());
+
+
+
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+particlesJS("particles-js", {"particles":{"number":{"value":160,"density":{"enable":true,"value_area":800}},"color":{"value":"#e40838"},"shape":{"type":"circle","stroke":{"width":0,"color":"#e40838"},"polygon":{"nb_sides":5},
+"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":true,"speed":1,"opacity_min":0,"sync":false}},"size":{"value":3,"random":true,"anim":
+{"enable":false,"speed":4,"size_min":0.3,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":1,"direction":"none","random":true,
+"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":600}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"bubble"},"onclick":{"enable":true,"mode":
+"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":250,"size":0,"duration":2,"opacity":0,"speed":3},"repulse":{"distance":400,"duration":0.4},"push":
+{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
